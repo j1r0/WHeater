@@ -5,3 +5,5 @@ A Real-Time Water Heater System
 Jim Pamplona
 
 Daniel Machado
+
+Gianna Scarangelli
