@@ -7,17 +7,22 @@
 typedef struct
 {
 	int data;
-} Sensor;
+} Sensor; 
 
 /**
- * Data: value - the intial value of  the sensor (probably 0)
- * Purpose: Simply acts like a constructor. Call this before doing anything to the sensors
- * Pre-Condition:  Sensors are not initialized, but declared
- * Post-Condition: A Sensor is initialized
- * Returns: Nothing
- */
-void initializeSensor(Sensor *this, float value);
-
+ * Purpose: Reads the data from the sensor
+ * Pre-Condition: Sensor is initialized
+ * Post-Condition: Nothing
+ * Return: Value read by the sensor
+*/
 float readSensor(Sensor *this);
+
+/**
+ * Purpose: Reads the data from the Water Level sensor
+ * Pre-Condition: Water Level Sensor is initialized
+ * Post-Condition: Nothing
+ * Return: Whether the sensor is on or not
+*/
+bool readWaterLevelSensor(Sensor *this);
 
 // How do We update the values of the sensors?

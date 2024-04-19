@@ -4,8 +4,6 @@
  */
 
 // NEEDS TO CONNECT TO TEH CONTROLLERS
-#include "sensors.h"
-#include "physical.h"
 
 /**
  * This array contains the heights of the 4 water level sensors
@@ -62,6 +60,7 @@ void printCycleNum(int numOfCycles, int currentCycle);
 void printTankStatus(int waterLevel, int pressure, int temperature);
 
 /**
+ * Data: Somehow needs to get the status of all Physical objects
  * Purpose: Prints the status of the Physical Objects at the current cycle
  */
-void printPhysicalStatus(Heater heater, Valve inlet1, Valve inlet2, Valve outlet);
+void printPhysicalStatus();
