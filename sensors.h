@@ -1,4 +1,5 @@
 #include <stdbool.h>
+// #include "tankSim.h"
 
 /**
  * Sensor struct to be used All sensors.
@@ -25,4 +26,6 @@ float readSensor(Sensor *this);
 */
 bool readWaterLevelSensor(Sensor *this);
 
+// Fuck how do I upload tank here
+// void updateSensor(Sensor *this, Tank *stank);
 // How do We update the values of the sensors?

@@ -3,7 +3,10 @@
  * the height of the Water level sensors, and min/max value of the temperature sensors
  */
 
-// NEEDS TO CONNECT TO TEH CONTROLLERS
+#include "sensorController.h"
+#include "physicalController.h"
+
+// NEEDS TO CONNECT TO THE CONTROLLERS
 
 /**
  * This array contains the heights of the 4 water level sensors

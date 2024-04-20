@@ -1,6 +1,6 @@
 #include "sensorController.h"
 #include "physicalController.h"
-#include "tankSimulator.h"
+#include "tankSim.h"
 #include <stdio.h>
 
 // this is just for testing. We need to run everything as different tasks

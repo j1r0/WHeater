@@ -1,12 +1,12 @@
-#include "sensors.h"
-#include <stdio.h>
+// #include "sensors.h"
+// #include <stdio.h>
 
-void initializeSensor(Sensor *this, float value)
-{
-    this->data = value;
-}
+// void initializeSensor(Sensor *this, float value)
+// {
+//     this->data = value;
+// }
 
-float readSensor(Sensor *this)
-{
-    return this->data;
-}
+// float readSensor(Sensor *this)
+// {
+//     return this->data;
+// }

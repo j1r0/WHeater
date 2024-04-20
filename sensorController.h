@@ -10,7 +10,7 @@
 typedef struct{
     float height;
     Sensor waterLevelSensor;
-}WaterLevelControllerWrap;
+} WaterLevelControllerWrap;
 
 /**
  * Making a pack of all the sensors, this is how they are all going to be passed to 
