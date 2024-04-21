@@ -4,7 +4,8 @@
         "sensorcontroller.h": "c",
         "physicalcontroller.h": "c",
         "stdbool.h": "c",
-        "physical.h": "c"
+        "physical.h": "c",
+        "sensors.h": "c"
     },
-    "C_Cpp.errorSquiggles": "enabled"
+    "C_Cpp.errorSquiggles": "disabled"
 }

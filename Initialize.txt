@@ -1,0 +1,39 @@
+Here we will keep track of all the things we need to initialize:
+
+- void initializeTank(Tank *this, int temperature, int pressure, int waterLevel);
+-void initializeSensors
+
+We will need functions that conenct and request information from one subsystem to the other
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ From sensorController.h
+/**
+ * This struct wraps a water level sensor into a data type only available to the 
+ * Sensor controller. This way the Sensor controller can assign each sensor a height, 
+ * without the sensors having to know their height, only reading
+ * 
+ * Basically takes away from the sensor a job that shouldnt be theirs
+*/
+
+//Not needed anymore (or at least for now)
+
+// typedef struct{
+//     float height;
+//     Sensor waterLevelSensor;
+// } WaterLevelControllerWrap;
