@@ -4,8 +4,6 @@
 /**
  * This is how the Simulation gets the Status of Physical
 */
-struct Heater;
-struct Valve;
 
 typedef struct{
     bool isHeaterOn;
@@ -27,7 +25,7 @@ void initializePhysical(Heater *heater, Valve *inlet1, Valve *inlet2, Valve *out
  * Post-Condition: Nothing
  * Return: The state of the heater (On/Off)
 */
-physicalStatusPackage getPhysicalStatus(Heater *heater, Valve *inlet1, Valve *inlet2, Valve *outlet);
+physicalStatusPackage getPhysicalStatus(physicalStatusPackage *currentStatus,Heater *heater, Valve *inlet1, Valve *inlet2, Valve *outlet);
 
 /**
  * Data: newStatus - status to set the heater to (On/Off)

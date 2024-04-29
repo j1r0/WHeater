@@ -18,6 +18,9 @@ struct Heater;
 struct Valve;
 
 /**
+ * Data: Height of the different sensors (lowest height to tallest)
+ *      We might need an algorithm to determine which height is for which sensor
+ *      Also, 2 sensors cannot have the same height
  * Purpose: initialize water level sensor's heights
  * WE NEED TO KNOW HOW TALL TANK WILL BE
 */

@@ -13,7 +13,7 @@ void readTemperature(Sensor *this, Tank *tank)
 void readWaterLevel(WaterLevelSensor *this, Tank *tank)
 {
     // If the waterLevel < sensor, sensor is off
-    if (tank ->waterLevel < this->height )
+    if (tank->waterLevel < *this->height )
     {
         this->data = 0;
     } else

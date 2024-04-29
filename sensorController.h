@@ -14,7 +14,7 @@
 typedef struct{
     Sensor temperatureSensor;
     Sensor pressureSensor;
-    Sensor waterLevelSensors[4];
+    WaterLevelSensor waterLevelSensors[4];
 } SensorsPack;
 
 typedef struct sensorValuesPackage{

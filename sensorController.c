@@ -1,7 +1,13 @@
 #include "sensorController.h"
 #include <stdio.h>
 
-//MIGHT HAVE TO BE CHANGED IF THE USER CAN INPUT THE INITIAL VALUES although weird
+/**
+ * Create instances of the sensors
+*/
+Sensor pressureSensor;
+Sensor temperatureSensor;
+WaterLevelSensor waterLevelSensors[4];
+
 void initializeSensors(SensorsPack *this, float temperature, float pressure, float waterLevel)
 {
     this -> waterLevelSensors[3].data = 0;
@@ -13,14 +19,14 @@ void initializeSensors(SensorsPack *this, float temperature, float pressure, flo
     this ->temperatureSensor = 0;
 }
 
-SensorValues readSensors(SensorValues *this, SensorsPack sp)
+SensorValues readSensors(SensorValues *this, SensorsPack *sp)
 {
-    *this->pressure = getSensorValue(&sp->pressureSensor);
-    *this->temperature = getSensorValue(&sp->temperatureSensor);
-    *this->waterLevelHigher = getSensorValue(&sp->waterLevelSensor[3]);
-    *this->waterLevelHigh = getSensorValue(&sp->waterLevelSensor[2]);
-    *this->waterLevelLow = getSensorValue(&sp->waterLevelSensor[1]);
-    *this->waterLevelLower = getSensorValue(&sp->waterLevelSensor[0]);
+    this->pressure = getSensorValue(&sp->pressureSensor);
+    this->temperature = getSensorValue(&sp->temperatureSensor);
+    this->waterLevelHigher = getSensorValue(&sp->waterLevelSensor[3]);
+    this->waterLevelHigh = getSensorValue(&sp->waterLevelSensor[2]);
+    this->waterLevelLow = getSensorValue(&sp->waterLevelSensor[1]);
+    this->waterLevelLower = getSensorValue(&sp->waterLevelSensor[0]);
 }
 
 /**
@@ -37,3 +43,10 @@ SensorValues readSensors(SensorValues *this, SensorsPack sp)
 //     // Works :)
 //     return 0;
 // }
+
+
+int main()
+{
+    
+    return 0;
+}

@@ -1,19 +1,22 @@
+// #include "tank.h"
+// #include "sensorController.h"
+// #include "physicalController.h"
+// #include "simulationUI.h"
+// #include "mainController.h"
+
+
 #include "tank.h"
 #include "sensorController.h"
-#include "physicalController.h"
-#include "simulationUI.h"
-#include "mainController.h"
 #include <stdio.h>
-
-// this is just for testing. We need to run everything as different tasks
-int x = 10;
-int *pointer;
-
 
 int main()
 {
-
-    printf("\n");
-    printf("This works Yippee \n");
+    Tank tankTest;
+    tankTest.pressure = 1;
+    Sensor press;
+    readPressure(&press, &tankTest);
+    int test = press.data;
+    printf("the value of the pressure is %d\n", test);
+    printf("This works :3\n");
     return 0;
 }

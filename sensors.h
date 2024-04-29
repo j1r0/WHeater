@@ -37,7 +37,10 @@ void readTemperature(Sensor *this, Tank *tank);
  * Post-Condition: Nothing
  * Return: Nothing
 */
-void readPressure(Sensor *this, Tank *tank);
+void readPressure(Sensor *this, Tank *tank)
+{
+    this->data = tank->pressure;
+}
 
 
 /**
