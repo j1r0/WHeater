@@ -5,6 +5,7 @@
 
 // NEEDS TO CONNECT TO THE CONTROLLERS
 
+
 /**
  * This array contains the heights of the 4 water level sensors
  */
@@ -49,6 +50,9 @@ void setWaterLevelSensors();
  * ************* Everything from now on deals with displaying information back to the user *************
  */
 
+void initializeEverything();
+
+void startSimulation();
 /**
  * Purpose: Simply prints what cycle the simulation is in
  */

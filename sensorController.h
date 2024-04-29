@@ -1,6 +1,5 @@
 #include "sensors.h"
 
-
 /**
  * Making a pack of all the sensors, this is how they are all going to be passed to 
  * the Controller Subsystem
@@ -18,7 +17,7 @@ typedef struct{
     Sensor waterLevelSensors[4];
 } SensorsPack;
 
-typedef struct {
+typedef struct sensorValuesPackage{
     float temperature;
     float pressure;
     int waterLevelHigher;

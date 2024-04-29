@@ -1,7 +1,7 @@
 Here we will keep track of all the things we need to initialize:
 
 - void initializeTank(Tank *this, int temperature, int pressure, int waterLevel);
--void initializeSensors
+- void initializeSensors
 
 We will need functions that conenct and request information from one subsystem to the other
 

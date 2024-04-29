@@ -1,10 +1,6 @@
-/**
- * MIGHT NOT NEED TANK
- * USING TANK MIGHT LEAD TO CIRCULAR DEPENDENCIES
-*/
-
 #include <stdbool.h>
-#include "tank.h"
+
+struct Tank;
 
 /**
  * Sensor struct to be used All sensors.

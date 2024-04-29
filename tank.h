@@ -10,7 +10,6 @@ typedef struct {
     int waterLevel;
 } Tank;
 
-
 /**
  * Data: initial parameters of the tank (Probably set to 0)
  * Purpose: Simply acts like a constructor
@@ -18,6 +17,7 @@ typedef struct {
  * Post-Condition: The tank is initialized
 */
 void initializeTank(Tank *this, int temperature, int pressure, int waterLevel);
+
 
 /**
  * Purpose: Gets the temperature of the tank
@@ -55,7 +55,7 @@ void updateTemperature(Tank *this, bool isHeaterOn);
 */
 void updateWaterLevel(Tank *this, bool inletStatus, bool outletStatus);
 
-/**
- * Need to change this
+/**Data: Requires some conditions, idk
+ * Purpose: Update the pressure value of the tank
 */
 void updatePressure(Tank *this);
