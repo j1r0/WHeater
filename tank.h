@@ -1,3 +1,4 @@
+
 /**
  * This is where we update the values of our simulated tank
 */
@@ -16,7 +17,7 @@ typedef struct {
  * Pre-Condition: The tank is not initialized
  * Post-Condition: The tank is initialized
 */
-void initializeTank(Tank *this, int temperature, int pressure, int waterLevel);
+void initializeTank(Tank *this);
 
 
 /**

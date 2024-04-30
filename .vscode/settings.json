@@ -7,7 +7,9 @@
         "physical.h": "c",
         "sensors.h": "c",
         "tank.h": "c",
-        "maincontroller.h": "c"
+        "maincontroller.h": "c",
+        "simulationui.h": "c"
     },
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "enabled",
+    "cmake.configureOnOpen": true
 }

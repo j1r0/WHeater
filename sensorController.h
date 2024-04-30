@@ -1,3 +1,4 @@
+#pragma once
 #include "sensors.h"
 
 /**
@@ -17,7 +18,7 @@ typedef struct{
     WaterLevelSensor waterLevelSensors[4];
 } SensorsPack;
 
-typedef struct sensorValuesPackage{
+typedef struct{
     float temperature;
     float pressure;
     int waterLevelHigher;
@@ -34,13 +35,14 @@ typedef struct sensorValuesPackage{
  * Post-Condition: A Sensor is initialized
  * Returns: Nothing
  */
-void initializeSensors(SensorsPack *this, float height1, float height2, float height3, float height4);
+void initializeSensors(SensorsPack *this, float height1, float height2, float height3,float height4);
 
 /**
  * Purpose: This is how other modules initialize the sensors. this way they dont need a 
  * Sensor Pack, just send the values.
 */
 void initializeSensorsPublic(float height1, float height2, float height3, float height4);
+
 
 
 /**
@@ -50,5 +52,7 @@ void initializeSensorsPublic(float height1, float height2, float height3, float 
  * Post-Condition: Nothing
  * Return: returns SensorValues struct containing the values read from the sensors
 */
-SensorValues readSensors(SensorsPack *this);
+SensorValues readSensors(SensorValues *this, SensorsPack *sp);
+
+SensorValues readSensorPublic();
 

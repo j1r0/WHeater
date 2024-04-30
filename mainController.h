@@ -1,27 +1,7 @@
-/**
- * *********************** DELETE THIS LATER ******************
-*/
-// #include "simulationUI.h" 
-// #include "sensorController.h"
-// #include "physical.h"
-/**************************************/
-
-/**
- * Forward Declaration - min and max values from Simulation.h
-*/
-struct minMaxValues;
-
-/**
- * Forward Declaration - Sensor Values is defined in sensorController.h
-*/
-struct SensorValues;
-
-
-/**
- * Forward Declaration - Both defined in physical.h
-*/
-struct Heater;
-struct Valve;
+#pragma once
+#include "physicalController.h"
+#include "sensorController.h"
+#include "simulationUI.h"
 
 /**
  * Data: Height of the different sensors (lowest height to tallest)
@@ -37,6 +17,8 @@ void initializeSensorsMain(float height1, float height2, float height3, float he
 */
 void initializePhysicalMain();
 
+void getSensorValues();
+
 /**
  * Purpose: Used as the temperature controller. Simply decides what to do with the Heater
 */
@@ -47,6 +29,6 @@ void temperatureController(Heater *this, minMaxValues minMax);
  * Purpose: Used as the pressure controller. Simply decides what to do with the Outlet valve
  * Post-Condition: The status of the outlet valve changes/stays the same
 */
-void pressureController();
+void pressureController(Valve *this, minMaxValues minMax);
 
-void waterLevelController();
+void waterLevelController(Valve *outlet, Valve *inlet1, Valve *inlet2, minMaxValues minMax);

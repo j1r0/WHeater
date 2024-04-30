@@ -1,3 +1,4 @@
+#include <stdio.h>
 /**
  * Here we do the initalization of how many times the simulation will run,
  * the height of the Water level sensors, and min/max value of the temperature sensors
@@ -12,21 +13,6 @@ typedef struct {
     int maxPressure;
 } minMaxValues;
 
-/**
- * This array contains the heights of the 4 water level sensors
- */
-float waterSensorsHeights[4];
-
-/**
- * This array contains the Min and Max of the temperature sensor
- */
-float temperatureSensorMinMax[2];
-
-/**
- * This is for the amount of cycles the simulation will be run for
- */
-int numOfCycles;
-int currentCycle;
 
 /**
  * Purpose: gets from the user the number of times the simulation will be run
@@ -41,7 +27,7 @@ void getNumOfCycles();
  * Pre-Condition: Nothing
  * Post-Condition: Nothing
  */
-void setMinMaxTemperature();
+void setMinMaxTemperature(minMaxValues minMax);
 
 /**
  * Purpose: gets from the user the heights of the different water level sensors and
@@ -49,13 +35,14 @@ void setMinMaxTemperature();
  * Pre-Condition: Nothing
  * Post-Condition: Nothing
  */
-void setWaterLevelSensors();
+void getWaterLevelSensors();
 
 /**
  * *****************************************************************************************************
  * ************* Everything from now on deals with displaying information back to the user *************
  */
 
+//Here remember to initialize the Water Level sensors
 void initializeEverything();
 
 void startSimulation();

@@ -11,8 +11,6 @@ typedef struct{
     bool isOutletOpen;
 } physicalStatusPackage;
 
-void initializePhysicalPublic();
-
 /**
  * Purpose: Acts like a constructor. Everything is initially off/Closed
  * Pre-Condition: Everything is initialized
@@ -20,13 +18,16 @@ void initializePhysicalPublic();
 */
 void initializePhysical(Heater *heater, Valve *inlet1, Valve *inlet2, Valve *outlet);
 
+void initializePhysicalPublic();
+
+
 /**
  * Purpose: Gets the current status of the Heater
  * Pre-Condition: Heater is initialized
  * Post-Condition: Nothing
  * Return: The state of the heater (On/Off)
 */
-physicalStatusPackage getPhysicalStatus(physicalStatusPackage *currentStatus,Heater *heater, Valve *inlet1, Valve *inlet2, Valve *outlet);
+physicalStatusPackage getPhysicalStatus(physicalStatusPackage *currentStatus, Heater *heater, Valve *inlet1, Valve *inlet2, Valve *outlet);
 
 /**
  * Data: newStatus - status to set the heater to (On/Off)

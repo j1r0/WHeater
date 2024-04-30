@@ -9,6 +9,7 @@ Sensor temperatureSensor;
 SensorsPack sp;
 WaterLevelSensor waterLevelSensors[4];
 
+SensorValues sv;
 
 void initializeSensors(SensorsPack *this, float height1, float height2, float height3,float height4)
 {
@@ -23,24 +24,32 @@ void initializeSensors(SensorsPack *this, float height1, float height2, float he
     this->waterLevelSensors[0].data = 0;
 
     this->pressureSensor.data = 0;
-    this->temperatureSensor = 0;
+    this->temperatureSensor.data = 0;
 }
 
 void initializeSensorsPublic(float height1, float height2, float height3, float height4)
 {
-    initializeSensors(&sp, temperature, pressure, height1, height2, height3, height4);
+    initializeSensors(&sp, height1, height2, height3, height4);
 }
 
 SensorValues readSensors(SensorValues *this, SensorsPack *sp)
 {
-    this->waterLevelHigher = getSensorValue(&sp->waterLevelSensor[3]);
-    this->waterLevelHigh = getSensorValue(&sp->waterLevelSensor[2]);
-    this->waterLevelLow = getSensorValue(&sp->waterLevelSensor[1]);
-    this->waterLevelLower = getSensorValue(&sp->waterLevelSensor[0]);
+    this->waterLevelHigher = getWaterLevelSensorValue(&(sp->waterLevelSensors[3]));
+    this->waterLevelHigh = getWaterLevelSensorValue(&(sp->waterLevelSensors[2]));
+    this->waterLevelLow = getWaterLevelSensorValue(&(sp->waterLevelSensors[1]));
+    this->waterLevelLower = getWaterLevelSensorValue(&(sp->waterLevelSensors[0]));
 
-    this->pressure = getSensorValue(&sp->pressureSensor);
-    this->temperature = getSensorValue(&sp->temperatureSensor);
+    this->pressure = getSensorValue(&(sp->pressureSensor));
+    this->temperature = getSensorValue(&(sp->temperatureSensor));
+
+    SensorValues sv = *this;
 }
+
+SensorValues readSensorPublic()
+{
+    return readSensors(&sv, &sp);
+}
+
 
 /**
  * This shows how you can declare a sensorsPack sp,

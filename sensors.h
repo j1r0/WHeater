@@ -1,14 +1,13 @@
 #include <stdbool.h>
-
-struct Tank;
+#include "tank.h"
 
 /**
  * Sensor struct to be used All sensors.
  */
-typedef struct
+typedef struct 
 {
 	float data;
-} Sensor; 
+}Sensor; 
 
 /**
  * I wanted to have the WLS to not know its height, but then we have no way
@@ -21,7 +20,7 @@ typedef struct
 {
 	float height;
 	int data;
-} WaterLevelSensor; 
+} WaterLevelSensor;
 
 /**
  * Purpose: Reads the emperature from the tank, and updates the sensor
@@ -30,6 +29,7 @@ typedef struct
  * Return: Nothing
 */
 void readTemperature(Sensor *this, Tank *tank);
+
 
 /**
  * Purpose: Reads the pressure from the tank, and updates the sensor
@@ -46,7 +46,7 @@ void readPressure(Sensor *this, Tank *tank);
  * Post-Condition: Nothing
  * Return: Nothing
 */
-void readWaterLevel(Sensor *this, Tank *tank);
+void readWaterLevel(WaterLevelSensor *this, Tank *tank);
 
 /**
  * Purpose: Reads the value from the sensors
@@ -55,7 +55,6 @@ void readWaterLevel(Sensor *this, Tank *tank);
  * Return: Value read by sensor
 */
 int getSensorValue(Sensor *this);
-
 /**
  * Purpose: Reads the value from the sensors
  * Pre-Condition: Water Level Sensor is initialized
