@@ -28,12 +28,19 @@ typedef struct sensorValuesPackage{
 
 /**
  * Data: value - the intial value of  the sensor (probably 0)
+ *      Rest - the initial values of temperature, pressure, and height of wlevel sensors
  * Purpose: Simply acts like a constructor. Call this before doing anything to the sensors
  * Pre-Condition:  Sensors are not initialized, but declared
  * Post-Condition: A Sensor is initialized
  * Returns: Nothing
  */
-void initializeSensors(SensorsPack *this);
+void initializeSensors(SensorsPack *this, float height1, float height2, float height3, float height4);
+
+/**
+ * Purpose: This is how other modules initialize the sensors. this way they dont need a 
+ * Sensor Pack, just send the values.
+*/
+void initializeSensorsPublic(float height1, float height2, float height3, float height4);
 
 
 /**

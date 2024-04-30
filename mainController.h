@@ -1,15 +1,21 @@
-typedef struct minMax{
-    float maxTemperature;
-    float minTemperature;
-    int criticalPressure;
-    int minPressure;
-    int maxPressure;
-} minMaxValues;
+/**
+ * *********************** DELETE THIS LATER ******************
+*/
+// #include "simulationUI.h" 
+// #include "sensorController.h"
+// #include "physical.h"
+/**************************************/
+
+/**
+ * Forward Declaration - min and max values from Simulation.h
+*/
+struct minMaxValues;
 
 /**
  * Forward Declaration - Sensor Values is defined in sensorController.h
 */
 struct SensorValues;
+
 
 /**
  * Forward Declaration - Both defined in physical.h
@@ -27,9 +33,9 @@ struct Valve;
 void initializeSensorsMain(float height1, float height2, float height3, float height4);
 
 /**
- * Purpose: Simply to set the min and maximum values of the temperature sensors
+ * Purpose: Initialize The physical Objects
 */
-void initializePhysicalMain(float maxTemperature, float minTemperature);
+void initializePhysicalMain();
 
 /**
  * Purpose: Used as the temperature controller. Simply decides what to do with the Heater

@@ -4,13 +4,14 @@
 /**
  * This is how the Simulation gets the Status of Physical
 */
-
 typedef struct{
     bool isHeaterOn;
     bool isInletOpen1;
     bool isInletOpen2;
     bool isOutletOpen;
 } physicalStatusPackage;
+
+void initializePhysicalPublic();
 
 /**
  * Purpose: Acts like a constructor. Everything is initially off/Closed

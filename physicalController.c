@@ -19,6 +19,11 @@ void initializePhysical(Heater *heater, Valve *inlet1, Valve *inlet2, Valve *out
     outlet->isOpen = false;
 }
 
+void initializePhysicalPublic()
+{
+    initializePhysical(&heater, &inlet1, &inlet2, &outlet);
+}
+
 physicalStatusPackage getPhysicalStatus(physicalStatusPackage *currentStatus, Heater *heater, Valve *inlet1, Valve *inlet2, Valve *outlet)
 {
     currentStatus->isHeaterOn = heater->isOn;

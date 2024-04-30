@@ -1,18 +1,16 @@
-// #include "tank.h"
-// #include "sensorController.h"
-// #include "physicalController.h"
-// #include "simulationUI.h"
-// #include "mainController.h"
-
-
+#include "simulationUI.h"
 #include "tank.h"
+#include "physicalController.h"
 #include "sensorController.h"
+#include "mainController.h"
+
 #include <stdio.h>
+
 
 int main()
 {
     Tank tankTest;
-    tankTest.pressure = 1;
+    tankTest.pressure = 4;
     Sensor press;
     readPressure(&press, &tankTest);
     int test = press.data;

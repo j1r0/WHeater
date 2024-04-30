@@ -4,7 +4,13 @@
  */
 
 // NEEDS TO CONNECT TO THE CONTROLLERS
-
+typedef struct {
+    float maxTemperature;
+    float minTemperature;
+    int criticalPressure;
+    int minPressure;
+    int maxPressure;
+} minMaxValues;
 
 /**
  * This array contains the heights of the 4 water level sensors
