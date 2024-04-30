@@ -20,7 +20,7 @@ int main()
     // printf("This works :3\n");
 
     getNumOfCycles();
-    setMinMaxTemperature(minMax);
+    setMinMaxTemperature();
     // getWaterLevelSensors();
     // initializeSensors(&sp,waterSensorsHeights[0], waterSensorsHeights[1], waterSensorsHeights[2],
     // waterSensorsHeights[3]);

@@ -18,6 +18,9 @@ typedef struct{
     WaterLevelSensor waterLevelSensors[4];
 } SensorsPack;
 
+/**
+ * This is what we pass to other Functions
+*/
 typedef struct{
     float temperature;
     float pressure;

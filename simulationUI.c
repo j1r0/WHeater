@@ -16,6 +16,8 @@ float temperatureSensorMinMax[2];
 int numOfCycles;
 int currentCycle;
 
+minMaxValues minMax;
+
 void getNumOfCycles()
 {
     printf("Select the number of cycles to run the simulation for: \n");
@@ -24,7 +26,7 @@ void getNumOfCycles()
     
 }
 
-void setMinMaxTemperature(minMaxValues minMax)
+void setMinMaxTemperature()
 {
     float userMaxTemp, userMinTemp;
     printf("Input Maximum temperature in Celsius: \n");
