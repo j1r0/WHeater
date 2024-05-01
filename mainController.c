@@ -1,4 +1,5 @@
 #include "mainController.h"
+#include "sensorController.h"
 #include <stdio.h>
 
 minMaxValues minMax;

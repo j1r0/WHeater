@@ -3,15 +3,12 @@
 #include "physicalController.h"
 #include "sensorController.h"
 #include "mainController.h"
+#include <stdio.h>
 
 
 /**
  * Create instances of the sensors
  */
-/**
- * Create instances of the sensors
- */
-
 Sensor pressureSensor;
 Sensor temperatureSensor;
 WaterLevelSensor waterLevelSensors[4];
@@ -99,6 +96,7 @@ void initializeEverything()
     // hardcoded values of the tank
     initializeValuesTank();
     initializeTank(&tank);
+    printf("Tank Temp: %d\n", tank.temperature);
     initializePublic(waterSensorsHeights[0], waterSensorsHeights[1], waterSensorsHeights[2], 
     waterSensorsHeights[3], maxTemperature, minTemperature, tankHeight);
 }
@@ -111,7 +109,13 @@ void startSimulation()
 
     readTemperature(&temperatureSensor, &tank);
     readPressure(&pressureSensor, &tank);
-    getSensorValues();
+    readWaterLevel(&waterLevelSensors[0],&tank);
+    readWaterLevel(&waterLevelSensors[1],&tank);
+    readWaterLevel(&waterLevelSensors[2],&tank);
+    readWaterLevel(&waterLevelSensors[3],&tank);
+
+    printf("Temp: %f\n ", temperatureSensor.data);
+
     
 }
 

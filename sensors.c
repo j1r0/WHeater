@@ -1,8 +1,10 @@
 #include "sensors.h"
+#include <stdio.h>
 
 void readTemperature(Sensor *this, Tank *tank)
 {
     this->data = tank->temperature;
+    printf("Reading from sensor temp: %f\n", this->data);
 }
 
 void readPressure(Sensor *this, Tank *tank)
