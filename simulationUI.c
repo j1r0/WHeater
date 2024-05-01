@@ -20,7 +20,7 @@ Heater heater;
 /**
  * This array contains the heights of the 4 water level sensors
  */
-float waterSensorsHeights[4];
+int waterSensorsHeights[4];
 
 /**
  * Instantiate the tank
@@ -100,7 +100,7 @@ void initializeEverything()
     initializeTank(&tank);
     printf("Tank Temp: %d\n", tank.temperature);
     initializePublic(waterSensorsHeights[0], waterSensorsHeights[1], waterSensorsHeights[2],
-                     waterSensorsHeights[3], maxTemperature, minTemperature, tankHeight, heater, inlet1, inlet2, outlet);
+                     waterSensorsHeights[3], maxTemperature, minTemperature, tankHeight, heater, inlet1, inlet2, outlet, waterLevelSensors, &temperatureSensor, &pressureSensor);
 }
 
 void startSimulation()

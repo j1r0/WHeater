@@ -14,6 +14,8 @@ void readPressure(Sensor *this, Tank *tank)
 
 void readWaterLevel(WaterLevelSensor *this, Tank *tank)
 {
+        printf("Water Level: %d\n", tank->waterLevel);
+        printf("Sensor Height: %d\n", this->height);
     // If the waterLevel < sensor, sensor is off
     if (tank->waterLevel < this->height )
     {
@@ -22,6 +24,7 @@ void readWaterLevel(WaterLevelSensor *this, Tank *tank)
     {
         this->data = 1;
     }
+
 }
 
 int getSensorValue(Sensor *this)

@@ -9,17 +9,13 @@ SensorValues svMain;
 
 
 void initializePublic(float waterLevelHeight1, float waterLevelHeight2, float waterLevelHeight3, float waterLevelHeight4, float maxTemperature, float minTemperature,
-float tankHeight, Heater heater, Valve inlet1, Valve inlet2, Valve outlet)
+float tankHeight, Heater heater, Valve inlet1, Valve inlet2, Valve outlet, WaterLevelSensor *waterLevelSensors, Sensor *temperatureSensor, Sensor *pressureSensor)
 {
-    initializeSensorsPublic(waterLevelHeight1, waterLevelHeight2, waterLevelHeight3, 
-    waterLevelHeight4);
+    initializeSensors(waterLevelSensors, temperatureSensor, pressureSensor, waterLevelHeight1, waterLevelHeight2, waterLevelHeight3, waterLevelHeight4);
     initializePhysical(&heater, &inlet1, &inlet2, &outlet);
-
     minMax.maxTemperature = maxTemperature;
     minMax.minTemperature = minTemperature;
     minMax.tankHeight = tankHeight;
-
-    //Hardcoded values of the tank
     minMax.criticalPressure = 50;
     minMax.minPressure = 20;
     minMax.maxPressure = 30;

@@ -19,7 +19,7 @@ typedef struct
 */
 typedef struct
 {
-	float height;
+	int height;
 	int data;
 } WaterLevelSensor;
 
