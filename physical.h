@@ -1,12 +1,12 @@
 #pragma once
-#include <stdbool.h>
+
 
 /**
  * Struct for the Heater
 */
 typedef struct
 {
-    bool isOn;
+    int isOn;
 } Heater;
 
 
@@ -15,5 +15,5 @@ typedef struct
  */
 typedef struct
 {
-    bool isOpen;
+    int isOpen;
 } Valve;

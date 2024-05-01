@@ -1,15 +1,14 @@
 #pragma once
-#include <stdbool.h>
 #include "physical.h"
 
 /**
  * This is how the Simulation gets the Status of Physical
 */
 typedef struct{
-    bool isHeaterOn;
-    bool isInletOpen1;
-    bool isInletOpen2;
-    bool isOutletOpen;
+    int isHeaterOn;
+    int isInletOpen1;
+    int isInletOpen2;
+    int isOutletOpen;
 } physicalStatusPackage;
 
 /**
@@ -37,7 +36,7 @@ physicalStatusPackage getPhysicalStatus(physicalStatusPackage *currentStatus, He
  * Post-Condition: Nothing
  * Returns: Nothing
 */
-void setHeaterStatus(Heater *this, bool newStatus);
+void setHeaterStatus(Heater *this, int newStatus);
 
 /**
  * Data: newstatus - status to set the valve to (open/closed)
@@ -46,4 +45,4 @@ void setHeaterStatus(Heater *this, bool newStatus);
  * Post-Condition: Nothing
  * Returns: Nothing
 */
-void setValveStatus(Valve *this, bool newStatus);
+void setValveStatus(Valve *this, int newStatus);

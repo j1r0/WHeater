@@ -12,10 +12,10 @@ physicalStatusPackage currentStatus;
 
 void initializePhysical(Heater *heater, Valve *inlet1, Valve *inlet2, Valve *outlet)
 {
-    heater->isOn = false;
-    inlet1->isOpen = false;
-    inlet2->isOpen = false;
-    outlet->isOpen = false;
+    heater->isOn = 0;
+    inlet1->isOpen = 0;
+    inlet2->isOpen = 0;
+    outlet->isOpen = 0;
 }
 
 
@@ -29,12 +29,12 @@ physicalStatusPackage getPhysicalStatus(physicalStatusPackage *currentStatus, He
     return copy;
 }
 
-void setHeaterStatus(Heater *this, bool newStatus)
+void setHeaterStatus(Heater *this, int newStatus)
 {
     this->isOn = newStatus;
 }
 
-void setValveStatus(Valve *this, bool newStatus)
+void setValveStatus(Valve *this, int newStatus)
 {
     this->isOpen = newStatus;   
 }

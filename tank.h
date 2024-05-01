@@ -3,8 +3,6 @@
  * This is where we update the values of our simulated tank
 */
 
-#include <stdbool.h>
-
 
 
 typedef struct {
@@ -47,7 +45,7 @@ int getWaterLevel(Tank *this);
  * Pre-condition: Water Tank is initialized
  * Return: Nothing
 */
-void updateTemperature(Tank *this, bool isHeaterOn);
+void updateTemperature(Tank *this, int isHeaterOn);
 
 /**
  * Data: inletstatus - status of the inlet
@@ -56,9 +54,9 @@ void updateTemperature(Tank *this, bool isHeaterOn);
  * Pre-condition: Water Tank is initialized
  * Return: Nothing
 */
-void updateWaterLevel(Tank *this, bool inlet1Status, bool inlet2Status, bool outletStatus);
+void updateWaterLevel(Tank *this, int inlet1Status, int inlet2Status, int outletStatus);
 
 /**Data: Requires some conditions, idk
  * Purpose: Update the pressure value of the tank
 */
-void updatePressure(Tank *this, bool outletStatus, int tankHeight, int maxTemperature, int waterLevelSensor3Height, int temperature);
+void updatePressure(Tank *this, int outletStatus, int tankHeight, int maxTemperature, int waterLevelSensor3Height, int temperature);

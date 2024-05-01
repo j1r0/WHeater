@@ -5,7 +5,6 @@
 #include "mainController.h"
 #include <stdio.h>
 
-
 /**
  * Create instances of the sensors
  */
@@ -98,23 +97,25 @@ void initializeEverything()
 
 void startSimulation()
 {
-    // for(int i = 0; i < numOfCycles; i++){
-    //
-    // }
+    printf("\n---Starting Simulation---\n");
+    for (int i = 0; i < numOfCycles; i++)
+    {
+        printf("\n---Cycle #%d/%d---\n", i + 1,numOfCycles);
+        readTemperature(&temperatureSensor, &tank);
+        readPressure(&pressureSensor, &tank);
+        readWaterLevel(&waterLevelSensors[0], &tank);
+        readWaterLevel(&waterLevelSensors[1], &tank);
+        readWaterLevel(&waterLevelSensors[2], &tank);
+        readWaterLevel(&waterLevelSensors[3], &tank);
 
-    readTemperature(&temperatureSensor, &tank);
-    readPressure(&pressureSensor, &tank);
-    readWaterLevel(&waterLevelSensors[0], &tank);
-    readWaterLevel(&waterLevelSensors[1], &tank);
-    readWaterLevel(&waterLevelSensors[2], &tank);
-    readWaterLevel(&waterLevelSensors[3], &tank);
+        temperatureController(&heater, temperatureSensor.data);
+        waterLevelController(&outlet, &inlet1, &inlet2, tank.waterLevel, waterLevelSensors);
+        pressureController(&outlet, tank.pressure);
 
-    temperatureController(&heater, temperatureSensor.data);
-    waterLevelController(&outlet, &inlet1, &inlet2, tank.waterLevel, waterLevelSensors);
-    pressureController(&outlet, tank.pressure);
-    
-    printf("\n---Updated Values---\n");
-    updateTemperature(&tank, heater.isOn);
-    updateWaterLevel(&tank, inlet1.isOpen, inlet2.isOpen, outlet.isOpen);
-    updatePressure(&tank, outlet.isOpen, minMax.tankHeight, minMax.maxTemperature, waterLevelSensors[3].data, temperatureSensor.data);
+        printf("\n---Updated Values---\n");
+        printf("maxTemperature: %f\n", minMax.maxTemperature);
+        updatePressure(&tank, outlet.isOpen, minMax.tankHeight, minMax.maxTemperature, waterLevelSensors[3].data, temperatureSensor.data);
+        updateTemperature(&tank, heater.isOn);
+        updateWaterLevel(&tank, inlet1.isOpen, inlet2.isOpen, outlet.isOpen);
+    }
 }

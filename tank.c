@@ -5,8 +5,8 @@
 void initializeTank(Tank *this)
 {
     this->pressure = 0;
-    this->temperature = 20;
-    this->waterLevel = 15;
+    this->temperature = 0;
+    this->waterLevel = 0;
 }
 
 int getPressure(Tank *this)
@@ -23,7 +23,7 @@ int getWaterLevel(Tank *this)
     return this->waterLevel;
 }
 
-void updateTemperature(Tank *this, bool isHeaterOn)
+void updateTemperature(Tank *this, int isHeaterOn)
 {
     if (isHeaterOn)
     {
@@ -37,7 +37,7 @@ void updateTemperature(Tank *this, bool isHeaterOn)
     printf("Updated Temperature: %d\n", this->temperature);
 }
 
-void updateWaterLevel(Tank *this, bool inlet1Status, bool inlet2Status, bool outletStatus)
+void updateWaterLevel(Tank *this, int inlet1Status, int inlet2Status, int outletStatus)
 {
     if (inlet1Status)
     {
@@ -55,7 +55,7 @@ void updateWaterLevel(Tank *this, bool inlet1Status, bool inlet2Status, bool out
     printf("Updated Water Level: %d\n", this->waterLevel);
 }
 
-void updatePressure(Tank *this, bool outletStatus, int tankHeight, int maxTemperature, int waterLevelSensor3Height, int temperature)
+void updatePressure(Tank *this, int outletStatus, int tankHeight, int maxTemperature, int waterLevelSensor3Height, int temperature)
 {
     if (this->waterLevel >= waterLevelSensor3Height)
     {
