@@ -6,6 +6,17 @@
 
 
 /**
+ * Create instances of the sensors
+ */
+/**
+ * Create instances of the sensors
+ */
+
+Sensor pressureSensor;
+Sensor temperatureSensor;
+WaterLevelSensor waterLevelSensors[4];
+
+/**
  * This array contains the heights of the 4 water level sensors
  */
 float waterSensorsHeights[4];
@@ -94,6 +105,8 @@ void startSimulation()
     //     
     // }
 
+    readTemperature(&temperatureSensor, &tank);
+    readPressure(&pressureSensor, &tank);
     getSensorValues();
     
 }

@@ -46,7 +46,13 @@ void getSensorValues()
     waterLevelHigh = svMain.waterLevelHigh;
     waterLevelHigher = svMain.waterLevelHigher;
 
-    printf("%f\n", pressure);
+    printf("Temperature from sensor: %f\n", svMain.temperature);
+    printf("Pressure from sensor: %f\n", svMain.pressure);
+    printf("waterLevelLower from sensor: %d\n", svMain.waterLevelLower);
+    printf("waterLevelLow from sensor: %d\n", svMain.waterLevelLow);
+    printf("waterLevelHigh from sensor: %d\n", svMain.waterLevelHigh);
+    printf("waterLevelHigher from sensor: %d\n", svMain.waterLevelHigher);
+
 }
 
 void temperatureController(Heater *this, minMaxValues minMax)
