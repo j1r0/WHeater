@@ -5,8 +5,8 @@
 void initializeTank(Tank *this)
 {
     this->pressure = 0;
-    this->temperature = 0;
-    this->waterLevel = 0;
+    this->temperature = 20;
+    this->waterLevel = 15;
 }
 
 int getPressure(Tank *this)
@@ -27,11 +27,11 @@ void updateTemperature(Tank *this, int isHeaterOn)
 {
     if (isHeaterOn)
     {
-        this->temperature += 1;
+        this->temperature += 5;
     }
     else
     {
-        this->temperature -= 1;
+        this->temperature -= 5;
     }
 
     printf("Updated Temperature: %d\n", this->temperature);
