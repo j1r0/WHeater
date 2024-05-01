@@ -1,4 +1,8 @@
 #include "simulationUI.h"
+#include "tank.h"
+#include "physicalController.h"
+#include "sensorController.h"
+#include "mainController.h"
 
 
 /**
@@ -81,9 +85,17 @@ void initializeEverything()
     initializeValuesTank();
     initializeTank(&tank);
     initializePublic(waterSensorsHeights[0], waterSensorsHeights[1], waterSensorsHeights[2], 
-    waterSensorsHeights[3], maxTemperature, minTemperature, criticalPressure, tankHeight);
-    
+    waterSensorsHeights[3], maxTemperature, minTemperature, tankHeight);
 }
 
+void startSimulation()
+{
+    // for(int i = 0; i < numOfCycles; i++){
+    //     
+    // }
+
+    getSensorValues();
+    
+}
 
 

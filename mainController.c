@@ -1,4 +1,5 @@
 #include "mainController.h"
+#include <stdio.h>
 
 minMaxValues minMax;
 
@@ -27,6 +28,7 @@ float tankHeight)
     minMax.minTemperature = minTemperature;
     minMax.tankHeight = tankHeight;
 
+    //Hardcoded values of the tank
     minMax.criticalPressure = 50;
     minMax.minPressure = 20;
     minMax.maxPressure = 30;
@@ -43,6 +45,8 @@ void getSensorValues()
     waterLevelLow = svMain.waterLevelLow;
     waterLevelHigh = svMain.waterLevelHigh;
     waterLevelHigher = svMain.waterLevelHigher;
+
+    printf("%f\n", pressure);
 }
 
 void temperatureController(Heater *this, minMaxValues minMax)
