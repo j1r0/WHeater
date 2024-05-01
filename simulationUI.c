@@ -1,14 +1,22 @@
 #include "simulationUI.h"
 
+
 /**
  * This array contains the heights of the 4 water level sensors
  */
 float waterSensorsHeights[4];
 
 /**
+ * Instantiate the tank
+*/
+Tank tank;
+/**
  * This array contains the Min and Max of the temperature sensor
  */
-float temperatureSensorMinMax[2];
+float tankHeight;
+float criticalPressure;
+float maxTemperature;
+float minTemperature;
 
 /**
  * This is for the amount of cycles the simulation will be run for
@@ -16,7 +24,6 @@ float temperatureSensorMinMax[2];
 int numOfCycles;
 int currentCycle;
 
-minMaxValues minMax;
 
 void getNumOfCycles()
 {
@@ -35,16 +42,16 @@ int setMinMaxTemperature()
     printf("Input Maximum temperature in Celsius: \n");
     scanf("%f", &userMaxTemp );
 
-    minMax.maxTemperature = userMaxTemp;
+    maxTemperature = userMaxTemp;
 
-    printf("Max temp: %f\n",minMax.maxTemperature);
+    printf("Max temp: %f\n",maxTemperature);
 
     printf("Input Minimum temperature in Celsius: \n");
     scanf("%f", &userMinTemp );
 
-    minMax.minTemperature = userMinTemp;
+    minTemperature = userMinTemp;
 
-    printf("Max temp: %f\n",minMax.minTemperature);
+    printf("Max temp: %f\n",minTemperature);
 
     return *minMaxTemperature;
 }
@@ -62,10 +69,25 @@ void getWaterLevelSensors()
     }
 }
 
-// void initializeEverything()
-// {
-//     initializeSensors(*sp,waterSensorsHeights[0], waterSensorsHeights[1], waterSensorsHeights[2], 
-//     waterSensorsHeights[3]);
+/**
+ * Hardcoding Values for the tank LOL
+*/
+ 
+ void initializeValuesTank()
+ {
+    tankHeight = 50;
+    criticalPressure = 50;
+ }
+
+void initializeEverything()
+{
+    // hardcoded values of the tank
+    initializeValuesTank();
+    initializeTank(&tank);
+    initializePublic(waterSensorsHeights[0], waterSensorsHeights[1], waterSensorsHeights[2], 
+    waterSensorsHeights[3], maxTemperature, minTemperature, criticalPressure, tankHeight);
     
-// }
+}
+
+
 

@@ -1,18 +1,7 @@
+#pragma once
 #include <stdio.h>
-/**
- * Here we do the initalization of how many times the simulation will run,
- * the height of the Water level sensors, and min/max value of the temperature sensors
- */
-
-// NEEDS TO CONNECT TO THE CONTROLLERS
-typedef struct {
-    float maxTemperature;
-    float minTemperature;
-    int criticalPressure;
-    int minPressure;
-    int maxPressure;
-} minMaxValues;
-
+#include "mainController.h"
+#include "tank.h"
 
 /**
  * Purpose: gets from the user the number of times the simulation will be run
@@ -42,8 +31,14 @@ void getWaterLevelSensors();
  * ************* Everything from now on deals with displaying information back to the user *************
  */
 
+/**
+ * Hardcoding the values of the simulated tank, only used by controllers
+*/
+void initializeValuesTank();
+
 //Here remember to initialize the Water Level sensors
 void initializeEverything();
+
 
 void startSimulation();
 /**
