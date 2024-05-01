@@ -4,7 +4,7 @@
 void initializeTank(Tank *this)
 {
     this->pressure = 0;
-    this->temperature = 0;
+    this->temperature = 20;
     this->waterLevel = 0;
 }
 
