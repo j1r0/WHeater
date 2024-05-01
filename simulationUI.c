@@ -114,7 +114,7 @@ void startSimulation()
     pressureController(&outlet, tank.pressure);
     
     printf("\n---Updated Values---\n");
-    updatePressure(&tank, outlet.isOpen, minMax.tankHeight, minMax.maxTemperature, waterLevelSensors[3].data, temperatureSensor.data);
     updateTemperature(&tank, heater.isOn);
     updateWaterLevel(&tank, inlet1.isOpen, inlet2.isOpen, outlet.isOpen);
+    updatePressure(&tank, outlet.isOpen, minMax.tankHeight, minMax.maxTemperature, waterLevelSensors[3].data, temperatureSensor.data);
 }

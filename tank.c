@@ -65,11 +65,13 @@ void updatePressure(Tank *this, bool outletStatus, int tankHeight, int maxTemper
     if (this ->temperature >= maxTemperature - 10)
     {
         this->pressure += 5;
+
     }
 
     if (outletStatus)
     {
         this->pressure -= 5;
+        this->waterLevel -= 1;
     }
 
     printf("Updated Pressure: %d\n", this->pressure);
