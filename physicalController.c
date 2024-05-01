@@ -42,6 +42,6 @@ void setHeaterStatus(Heater *this, bool newStatus)
 
 void setValveStatus(Valve *this, bool newStatus)
 {
-    this->isOpen = newStatus;
+    this->isOpen = newStatus;   
 }
 

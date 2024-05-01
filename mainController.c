@@ -6,12 +6,11 @@ minMaxValues minMax;
 
 SensorValues svMain;
 
-float temperature;
-float pressure;
 int waterLevelHigher;
 int waterLevelHigh;
 int waterLevelLow;
 int waterLevelLower;
+
 
 void initializePhysicalMain()
 {
@@ -35,28 +34,7 @@ float tankHeight)
     minMax.maxPressure = 30;
 }
 
-
-
-void getSensorValues()
-{
-    SensorValues svMain = readSensorPublic();
-    pressure = svMain.pressure;
-    temperature = svMain.temperature;
-    waterLevelLower = svMain.waterLevelLower;
-    waterLevelLow = svMain.waterLevelLow;
-    waterLevelHigh = svMain.waterLevelHigh;
-    waterLevelHigher = svMain.waterLevelHigher;
-
-    printf("Temperature from sensor: %f\n", svMain.temperature);
-    printf("Pressure from sensor: %f\n", svMain.pressure);
-    printf("waterLevelLower from sensor: %d\n", svMain.waterLevelLower);
-    printf("waterLevelLow from sensor: %d\n", svMain.waterLevelLow);
-    printf("waterLevelHigh from sensor: %d\n", svMain.waterLevelHigh);
-    printf("waterLevelHigher from sensor: %d\n", svMain.waterLevelHigher);
-
-}
-
-void temperatureController(Heater *this, minMaxValues minMax)
+void temperatureController(Heater *this, minMaxValues minMax, int temperature)
 {
     if(temperature >= minMax.maxTemperature)
     {
@@ -67,7 +45,7 @@ void temperatureController(Heater *this, minMaxValues minMax)
     }
 }
 
-void pressureController(Valve *this, minMaxValues minMax)
+void pressureController(Valve *this, minMaxValues minMax, int pressure)
 {
     if(pressure >= minMax.criticalPressure)
     {
@@ -75,7 +53,23 @@ void pressureController(Valve *this, minMaxValues minMax)
     }
 }
 
-void waterLevelController(Valve *outlet, Valve *inlet1, Valve *inlet2, minMaxValues minMax)
+void waterLevelController(Valve *outlet, Valve *inlet1, Valve *inlet2, minMaxValues minMax, int waterLevel)
 {
-    // NEED TO IMPLEMENT THIS
+    if (waterLevelHigher == 1 || waterLevel > minMax.tankHeight)
+    {
+        setValveStatus(inlet1, false);
+        setValveStatus(inlet2, false);
+        setValveStatus(outlet, true);
+    } else if (waterLevelHigh == 1)
+    {
+        setValveStatus(inlet1, true);
+        setValveStatus(inlet2, false);
+        setValveStatus(outlet, false);
+    } else if (waterLevelLow == 1 || waterLevelLower == 1 || waterLevelLower == 0)
+    {
+        setValveStatus(inlet1, true);
+        setValveStatus(inlet2, true);
+        setValveStatus(outlet, false);
+    }
+
 };
