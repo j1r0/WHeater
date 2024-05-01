@@ -32,28 +32,6 @@ float tankHeight, Heater heater, Valve inlet1, Valve inlet2, Valve outlet)
 }
 
 void temperatureController(Heater *this, minMaxValues minMax, int temperature)
-
-
-void getSensorValues()
-{
-    SensorValues svMain = readSensorPublic();
-    pressure = svMain.pressure;
-    temperature = svMain.temperature;
-    waterLevelLower = svMain.waterLevelLower;
-    waterLevelLow = svMain.waterLevelLow;
-    waterLevelHigh = svMain.waterLevelHigh;
-    waterLevelHigher = svMain.waterLevelHigher;
-
-    // printf("Temperature from sensor: %f\n", svMain.temperature);
-    // printf("Pressure from sensor: %f\n", svMain.pressure);
-    // printf("waterLevelLower from sensor: %d\n", svMain.waterLevelLower);
-    // printf("waterLevelLow from sensor: %d\n", svMain.waterLevelLow);
-    // printf("waterLevelHigh from sensor: %d\n", svMain.waterLevelHigh);
-    // printf("waterLevelHigher from sensor: %d\n", svMain.waterLevelHigher);
-
-}
-
-void temperatureController(Heater *this, minMaxValues minMax)
 {
     if(temperature >= minMax.maxTemperature)
     {
