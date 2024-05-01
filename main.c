@@ -16,5 +16,6 @@ int main()
     setMinMaxTemperature();
     getWaterLevelSensors();
     initializeEverything();
+    startSimulation();
     return 0;
 }
