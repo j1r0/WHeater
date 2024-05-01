@@ -44,4 +44,3 @@ void setValveStatus(Valve *this, bool newStatus)
 {
     this->isOpen = newStatus;   
 }
-
