@@ -51,7 +51,8 @@ void waterLevelController(Valve *outlet, Valve *inlet1, Valve *inlet2, int water
 {
         printf("\n---Water Level Controller---\n");
     printf("Water Level: %d\n", waterLevel);
-    for (int i = 0; i < 4; i++)
+    int i;
+    for (i = 0; i < 4; i++)
     {
         printf("Water Level Sensor #%d: %d\n", i + 1, waterLevelSensors[i].data);
     }

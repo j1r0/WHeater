@@ -41,6 +41,7 @@ float minTemperature;
  */
 int numOfCycles;
 int currentCycle;
+int i;
 
 void getNumOfCycles()
 {
@@ -66,7 +67,7 @@ void setMinMaxTemperature()
 void getWaterLevelSensors()
 {
     printf("The maximum height of the tank is 20m\n");
-    for (int i = 0; i < 4; i++)
+    for (i = 0; i < 4; i++)
     {
         float height;
         printf("Please input height of Water Level Sensor #%d\n", i + 1);
@@ -98,7 +99,7 @@ void initializeEverything()
 void startSimulation()
 {
     printf("\n---Starting Simulation---\n");
-    for (int i = 0; i < numOfCycles; i++)
+    for (i = 0; i < numOfCycles; i++)
     {
         printf("\n---Cycle #%d/%d---\n", i + 1,numOfCycles);
         readTemperature(&temperatureSensor, &tank);
