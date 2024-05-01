@@ -1,11 +1,12 @@
 #include "tank.h"
+#include <stdio.h>
 
 
 void initializeTank(Tank *this)
 {
     this->pressure = 0;
     this->temperature = 20;
-    this->waterLevel = 21;
+    this->waterLevel = 15;
 }
 
 int getPressure(Tank *this)
@@ -32,6 +33,8 @@ void updateTemperature(Tank *this, bool isHeaterOn)
     {
         this->temperature -= 1;
     }
+
+    printf("Updated Temperature: %d\n", this->temperature);
 }
 
 void updateWaterLevel(Tank *this, bool inlet1Status, bool inlet2Status, bool outletStatus)
@@ -48,15 +51,18 @@ void updateWaterLevel(Tank *this, bool inlet1Status, bool inlet2Status, bool out
     {
         this->waterLevel -= 1;
     }
+
+    printf("Updated Water Level: %d\n", this->waterLevel);
 }
 
-void updatePressure(Tank *this, bool outletStatus, int tankHeight, int maxTemperature)
+void updatePressure(Tank *this, bool outletStatus, int tankHeight, int maxTemperature, int waterLevelSensor3Height, int temperature)
 {
-    if (this->waterLevel >= tankHeight -10)
+    if (this->waterLevel >= waterLevelSensor3Height)
     {
         this->pressure += 5;
     }
-    if (this ->temperature > maxTemperature - 10)
+    
+    if (this ->temperature >= maxTemperature - 10)
     {
         this->pressure += 5;
     }
@@ -65,5 +71,7 @@ void updatePressure(Tank *this, bool outletStatus, int tankHeight, int maxTemper
     {
         this->pressure -= 5;
     }
+
+    printf("Updated Pressure: %d\n", this->pressure);
 
 }

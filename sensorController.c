@@ -18,14 +18,6 @@ void initializeSensors(WaterLevelSensor *waterLevelSensors, Sensor *temperatureS
 
     pressureSensor->data = 0; 
     temperatureSensor->data = 0;
-
-    printf("Temperature initialized: %f\n", temperatureSensor->data);
-    printf("Pressure initialized: %f\n", pressureSensor->data);
-    printf("WLS1 initialized: %d\n", waterLevelSensors[0].data);
-    printf("WLS2 initialized: %d\n", waterLevelSensors[1].data);
-    printf("WLS3 initialized: %d\n", waterLevelSensors[2].data);
-    printf("WLS4 initialized: %d\n", waterLevelSensors[3].data);
-    printf("\n");
 }
 
 // SensorValues readSensors(SensorValues *this, SensorsPack *sp)

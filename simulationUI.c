@@ -5,6 +5,7 @@
 #include "mainController.h"
 #include <stdio.h>
 
+
 /**
  * Create instances of the sensors
  */
@@ -16,6 +17,8 @@ Valve inlet1;
 Valve inlet2;
 Valve outlet;
 Heater heater;
+
+minMaxValues minMax;
 
 /**
  * This array contains the heights of the 4 water level sensors
@@ -47,27 +50,18 @@ void getNumOfCycles()
     printf("Number of cycles: %d\n", numOfCycles);
 }
 
-// TODO - make this return an array of the min and max values
-int *setMinMaxTemperature()
+void setMinMaxTemperature()
 {
-    int *minMaxTemperature;
-
     float userMaxTemp, userMinTemp;
     printf("Input Maximum temperature in Celsius: \n");
     scanf("%f", &userMaxTemp);
 
     maxTemperature = userMaxTemp;
 
-    printf("Max temp: %f\n", maxTemperature);
-
     printf("Input Minimum temperature in Celsius: \n");
     scanf("%f", &userMinTemp);
 
     minTemperature = userMinTemp;
-
-    printf("Max temp: %f\n", minTemperature);
-
-    return minMaxTemperature;
 }
 
 void getWaterLevelSensors()
@@ -79,7 +73,6 @@ void getWaterLevelSensors()
         printf("Please input height of Water Level Sensor #%d\n", i + 1);
         scanf("%f", &height);
         waterSensorsHeights[i] = height;
-        printf("Height of WLS #%d is %f\n", i + 1, waterSensorsHeights[i]);
     }
 }
 
@@ -98,7 +91,7 @@ void initializeEverything()
     // hardcoded values of the tank
     initializeValuesTank();
     initializeTank(&tank);
-    printf("Tank Temp: %d\n", tank.temperature);
+
     initializePublic(waterSensorsHeights[0], waterSensorsHeights[1], waterSensorsHeights[2],
                      waterSensorsHeights[3], maxTemperature, minTemperature, tankHeight, heater, inlet1, inlet2, outlet, waterLevelSensors, &temperatureSensor, &pressureSensor);
 }
@@ -115,6 +108,13 @@ void startSimulation()
     readWaterLevel(&waterLevelSensors[1], &tank);
     readWaterLevel(&waterLevelSensors[2], &tank);
     readWaterLevel(&waterLevelSensors[3], &tank);
+
     temperatureController(&heater, temperatureSensor.data);
     waterLevelController(&outlet, &inlet1, &inlet2, tank.waterLevel, waterLevelSensors);
+    pressureController(&outlet, tank.pressure);
+    
+    printf("\n---Updated Values---\n");
+    updatePressure(&tank, outlet.isOpen, minMax.tankHeight, minMax.maxTemperature, waterLevelSensors[3].data, temperatureSensor.data);
+    updateTemperature(&tank, heater.isOn);
+    updateWaterLevel(&tank, inlet1.isOpen, inlet2.isOpen, outlet.isOpen);
 }

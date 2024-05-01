@@ -23,9 +23,8 @@ float tankHeight, Heater heater, Valve inlet1, Valve inlet2, Valve outlet, Water
 
 void temperatureController(Heater *this, int temperature)
 {
-
+    printf("\n---Temperature Controller---\n");
     printf("Temperature: %d\n", temperature);
-    printf("Max Temp: %f\n", minMax.maxTemperature);
     if(temperature >= minMax.maxTemperature)
     {
         setHeaterStatus(this, false);
@@ -38,27 +37,40 @@ void temperatureController(Heater *this, int temperature)
 
 void pressureController(Valve *this, int pressure)
 {
+    printf("\n---Pressure Controller---\n");
+    printf("Pressure: %d\n", pressure);
     if(pressure >= minMax.criticalPressure)
     {
         setValveStatus(this, true);
     }
+    printf("Outlet Valve Status: %d\n", this->isOpen);
+
 }
 
 void waterLevelController(Valve *outlet, Valve *inlet1, Valve *inlet2, int waterLevel, WaterLevelSensor *waterLevelSensors)
 {
+        printf("\n---Water Level Controller---\n");
+    printf("Water Level: %d\n", waterLevel);
     for (int i = 0; i < 4; i++)
     {
-        printf("WLS %d: %d\n", i+1, waterLevelSensors[i].data);
+        printf("Water Level Sensor #%d: %d\n", i + 1, waterLevelSensors[i].data);
     }
     if (waterLevelSensors[3].data == 1 || waterLevel > minMax.tankHeight)
     {
         setValveStatus(inlet1, false);
         setValveStatus(inlet2, false);
         setValveStatus(outlet, true); 
+        printf("Inlet1 Valve Status: %d\n", inlet1->isOpen);
+        printf("Inlet2 Valve Status: %d\n", inlet2->isOpen);
+        printf("Outlet Valve Status: %d\n", outlet->isOpen);
     } else if (waterLevelSensors[0].data == 1) {
         setValveStatus(inlet1, true);
         setValveStatus(inlet2, true);
         setValveStatus(outlet, false);
+        printf("Inlet1 Valve Status: %d\n", inlet1->isOpen);
+        printf("Inlet2 Valve Status: %d\n", inlet2->isOpen);
+        printf("Outlet Valve Status: %d\n\n", outlet->isOpen);
     }
+    
 
 }

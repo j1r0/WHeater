@@ -61,4 +61,4 @@ void updateWaterLevel(Tank *this, bool inlet1Status, bool inlet2Status, bool out
 /**Data: Requires some conditions, idk
  * Purpose: Update the pressure value of the tank
 */
-void updatePressure(Tank *this, bool outletStatus, int tankHeight, int maxTemperature);
+void updatePressure(Tank *this, bool outletStatus, int tankHeight, int maxTemperature, int waterLevelSensor3Height, int temperature);
