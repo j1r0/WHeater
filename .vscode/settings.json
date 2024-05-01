@@ -1,15 +1,16 @@
 {
-    "files.associations": {
-        "stdio.h": "c",
-        "sensorcontroller.h": "c",
-        "physicalcontroller.h": "c",
-        "stdbool.h": "c",
-        "physical.h": "c",
-        "sensors.h": "c",
-        "tank.h": "c",
-        "maincontroller.h": "c",
-        "simulationui.h": "c"
-    },
-    "C_Cpp.errorSquiggles": "enabled",
-    "cmake.configureOnOpen": true
+  "files.associations": {
+    "stdio.h": "c",
+    "sensorcontroller.h": "c",
+    "physicalcontroller.h": "c",
+    "stdbool.h": "c",
+    "physical.h": "c",
+    "sensors.h": "c",
+    "tank.h": "c",
+    "maincontroller.h": "c",
+    "simulationui.h": "c"
+  },
+  "C_Cpp.errorSquiggles": "enabled",
+  "cmake.configureOnOpen": true,
+  "C_Cpp_Runner.msvcBatchPath": ""
 }

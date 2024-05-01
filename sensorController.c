@@ -6,9 +6,9 @@
  */
 Sensor pressureSensor;
 Sensor temperatureSensor;
-SensorsPack sp;
 WaterLevelSensor waterLevelSensors[4];
 
+SensorsPack sp;
 SensorValues sv;
 
 void initializeSensors(SensorsPack *this, float height1, float height2, float height3,float height4)

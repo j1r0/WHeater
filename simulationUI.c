@@ -26,8 +26,11 @@ void getNumOfCycles()
     
 }
 
-void setMinMaxTemperature()
+// TODO - make this return an array of the min and max values
+int setMinMaxTemperature()
 {
+    int minMaxTemperature[2];
+
     float userMaxTemp, userMinTemp;
     printf("Input Maximum temperature in Celsius: \n");
     scanf("%f", &userMaxTemp );
@@ -43,6 +46,7 @@ void setMinMaxTemperature()
 
     printf("Max temp: %f\n",minMax.minTemperature);
 
+    return *minMaxTemperature;
 }
 
 void getWaterLevelSensors()
