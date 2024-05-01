@@ -1,4 +1,4 @@
-
+#pragma once
 /**
  * This is where we update the values of our simulated tank
 */
@@ -54,9 +54,9 @@ void updateTemperature(Tank *this, bool isHeaterOn);
  * Pre-condition: Water Tank is initialized
  * Return: Nothing
 */
-void updateWaterLevel(Tank *this, bool inletStatus, bool outletStatus);
+void updateWaterLevel(Tank *this, bool inlet1Status, bool inlet2Status, bool outletStatus);
 
 /**Data: Requires some conditions, idk
  * Purpose: Update the pressure value of the tank
 */
-void updatePressure(Tank *this);
+void updatePressure(Tank *this, bool outletStatus, int tankHeight, int maxTemperature);

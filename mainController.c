@@ -1,6 +1,8 @@
 #include "mainController.h"
+#include <stdio.h>
 
-struct minMaxValues;
+minMaxValues minMax;
+
 SensorValues svMain;
 
 float temperature;
@@ -10,15 +12,29 @@ int waterLevelHigh;
 int waterLevelLow;
 int waterLevelLower;
 
-void initializeSensorsMain(float height1, float height2, float height3, float height4)
-{
-    initializeSensorsPublic(height1, height2, height3, height4);
-}
-
 void initializePhysicalMain()
 {
     initializePhysicalPublic();
 }
+
+void initializePublic(float waterLevelHeight1, float waterLevelHeight2, float waterLevelHeight3, float waterLevelHeight4, float maxTemperature, float minTemperature,
+float tankHeight)
+{
+    initializeSensorsPublic(waterLevelHeight1, waterLevelHeight2, waterLevelHeight3, 
+    waterLevelHeight4);
+    initializePhysicalPublic();
+
+    minMax.maxTemperature = maxTemperature;
+    minMax.minTemperature = minTemperature;
+    minMax.tankHeight = tankHeight;
+
+    //Hardcoded values of the tank
+    minMax.criticalPressure = 50;
+    minMax.minPressure = 20;
+    minMax.maxPressure = 30;
+}
+
+
 
 void getSensorValues()
 {
@@ -29,6 +45,14 @@ void getSensorValues()
     waterLevelLow = svMain.waterLevelLow;
     waterLevelHigh = svMain.waterLevelHigh;
     waterLevelHigher = svMain.waterLevelHigher;
+
+    printf("Temperature from sensor: %f\n", svMain.temperature);
+    printf("Pressure from sensor: %f\n", svMain.pressure);
+    printf("waterLevelLower from sensor: %d\n", svMain.waterLevelLower);
+    printf("waterLevelLow from sensor: %d\n", svMain.waterLevelLow);
+    printf("waterLevelHigh from sensor: %d\n", svMain.waterLevelHigh);
+    printf("waterLevelHigher from sensor: %d\n", svMain.waterLevelHigher);
+
 }
 
 void temperatureController(Heater *this, minMaxValues minMax)
