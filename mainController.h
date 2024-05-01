@@ -1,21 +1,27 @@
 #pragma once
 #include "physicalController.h"
 #include "sensorController.h"
-#include "simulationUI.h"
 
 /**
- * Data: Height of the different sensors (lowest height to tallest)
- *      We might need an algorithm to determine which height is for which sensor
- *      Also, 2 sensors cannot have the same height
- * Purpose: initialize water level sensor's heights
- * WE NEED TO KNOW HOW TALL TANK WILL BE
-*/
-void initializeSensorsMain(float height1, float height2, float height3, float height4);
+ * Here we do the initalization of how many times the simulation will run,
+ * the height of the Water level sensors, and min/max value of the temperature sensors
+ */
+typedef struct{
+    float maxTemperature;
+    float minTemperature;
+    int criticalPressure;
+    int minPressure;
+    int maxPressure;
+    int tankHeight;
+}minMaxValues;
+
 
 /**
  * Purpose: Initialize The physical Objects
 */
 void initializePhysicalMain();
+
+void initializePublic(float waterLevelHeight1, float waterLevelHeight2, float waterLevelHeight3, float waterLevelHeight4, float maxTemperature, float minTemperature, float tankHeight);
 
 void getSensorValues();
 

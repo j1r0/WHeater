@@ -1,4 +1,4 @@
-
+#pragma once
 /**
  * This is where we update the values of our simulated tank
 */

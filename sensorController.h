@@ -31,6 +31,11 @@ typedef struct{
 } SensorValues;
 
 /**
+ * Purpose: used by main to initialize the controllers
+*/
+void initializeSensorsPublic(float height1, float height2, float height3, float height4);
+
+/**
  * Data: value - the intial value of  the sensor (probably 0)
  *      Rest - the initial values of temperature, pressure, and height of wlevel sensors
  * Purpose: Simply acts like a constructor. Call this before doing anything to the sensors

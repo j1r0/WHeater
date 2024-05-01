@@ -1,6 +1,7 @@
 #include "mainController.h"
 
-struct minMaxValues;
+minMaxValues minMax;
+
 SensorValues svMain;
 
 float temperature;
@@ -10,15 +11,28 @@ int waterLevelHigh;
 int waterLevelLow;
 int waterLevelLower;
 
-void initializeSensorsMain(float height1, float height2, float height3, float height4)
-{
-    initializeSensorsPublic(height1, height2, height3, height4);
-}
-
 void initializePhysicalMain()
 {
     initializePhysicalPublic();
 }
+
+void initializePublic(float waterLevelHeight1, float waterLevelHeight2, float waterLevelHeight3, float waterLevelHeight4, float maxTemperature, float minTemperature,
+float tankHeight)
+{
+    initializeSensorsPublic(waterLevelHeight1, waterLevelHeight2, waterLevelHeight3, 
+    waterLevelHeight4);
+    initializePhysicalPublic();
+
+    minMax.maxTemperature = maxTemperature;
+    minMax.minTemperature = minTemperature;
+    minMax.tankHeight = tankHeight;
+
+    minMax.criticalPressure = 50;
+    minMax.minPressure = 20;
+    minMax.maxPressure = 30;
+}
+
+
 
 void getSensorValues()
 {
