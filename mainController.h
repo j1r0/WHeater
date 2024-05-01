@@ -21,7 +21,8 @@ typedef struct{
 */
 void initializePhysicalMain();
 
-void initializePublic(float waterLevelHeight1, float waterLevelHeight2, float waterLevelHeight3, float waterLevelHeight4, float maxTemperature, float minTemperature, float tankHeight);
+void initializePublic(float waterLevelHeight1, float waterLevelHeight2, float waterLevelHeight3, float waterLevelHeight4,
+ float maxTemperature, float minTemperature, float tankHeight,  Heater heater, Valve inlet1, Valve inlet2, Valve outlet);
 
 void getSensorValues();
 
