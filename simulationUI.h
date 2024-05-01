@@ -16,7 +16,7 @@ void getNumOfCycles();
  * Pre-Condition: Nothing
  * Post-Condition: Nothing
  */
-int setMinMaxTemperature();
+int *setMinMaxTemperature();
 
 /**
  * Purpose: gets from the user the heights of the different water level sensors and

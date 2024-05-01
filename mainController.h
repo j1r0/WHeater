@@ -29,13 +29,13 @@ void getSensorValues();
 /**
  * Purpose: Used as the temperature controller. Simply decides what to do with the Heater
 */
-void temperatureController(Heater *this, minMaxValues minMax, int temperature);
+void temperatureController(Heater *this, int temperature);
 
 /**
  * Data: sensorValuesPackage.pressure - The current reading of the temperature
  * Purpose: Used as the pressure controller. Simply decides what to do with the Outlet valve
  * Post-Condition: The status of the outlet valve changes/stays the same
 */
-void pressureController(Valve *this, minMaxValues minMax, int pressure);
+void pressureController(Valve *this, int pressure);
 
-void waterLevelController(Valve *outlet, Valve *inlet1, Valve *inlet2, minMaxValues minMax, int waterLevel);
+void waterLevelController(Valve *outlet, Valve *inlet1, Valve *inlet2, int waterLevel, WaterLevelSensor *waterLevelSensors);

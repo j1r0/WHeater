@@ -48,9 +48,9 @@ void getNumOfCycles()
 }
 
 // TODO - make this return an array of the min and max values
-int setMinMaxTemperature()
+int *setMinMaxTemperature()
 {
-    int minMaxTemperature[2];
+    int *minMaxTemperature;
 
     float userMaxTemp, userMinTemp;
     printf("Input Maximum temperature in Celsius: \n");
@@ -66,6 +66,8 @@ int setMinMaxTemperature()
     minTemperature = userMinTemp;
 
     printf("Max temp: %f\n", minTemperature);
+
+    return minMaxTemperature;
 }
 
 void getWaterLevelSensors()
@@ -113,6 +115,6 @@ void startSimulation()
     readWaterLevel(&waterLevelSensors[1], &tank);
     readWaterLevel(&waterLevelSensors[2], &tank);
     readWaterLevel(&waterLevelSensors[3], &tank);
-
-    // temperatureController();
+    temperatureController(&heater, temperatureSensor.data);
+    waterLevelController(&outlet, &inlet1, &inlet2, tank.waterLevel, waterLevelSensors);
 }
