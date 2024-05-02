@@ -54,9 +54,9 @@ void updateTemperature(Tank *this, int isHeaterOn);
  * Pre-condition: Water Tank is initialized
  * Return: Nothing
 */
-void updateWaterLevel(Tank *this, int inlet1Status, int inlet2Status, int outletStatus);
+void updateWaterLevel(Tank *this, int inlet1Status, int inlet2Status, int outletStatus, int waterlevelSensor1Height);
 
 /**Data: Requires some conditions, idk
  * Purpose: Update the pressure value of the tank
 */
-void updatePressure(Tank *this, int outletStatus, int tankHeight, int maxTemperature, int waterLevelSensor3Height, int temperature);
+void updatePressure(Tank *this, int outletStatus, int tankHeight, int maxTemperature, int temperature, int waterLevelSensor3Height, int waterLevelSensor1Height);

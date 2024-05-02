@@ -28,7 +28,7 @@ void temperatureController(Heater *this, int temperature)
     if(temperature >= minMax.maxTemperature)
     {
         setHeaterStatus(this, 0);
-    } else if (temperature < minMax.minTemperature)
+    } else if (temperature < minMax.maxTemperature)
     {
         setHeaterStatus(this, 1);
     }
@@ -39,12 +39,15 @@ void pressureController(Valve *this, int pressure)
 {
     printf("\n---Pressure Controller---\n");
     printf("Pressure: %d\n", pressure);
+    printf("Critical Pressure: %d\n", minMax.criticalPressure);
     if(pressure >= minMax.criticalPressure)
     {
         setValveStatus(this, 1);
+    } else if (pressure < minMax.criticalPressure)
+    {
+        setValveStatus(this, 0);
     }
     printf("Outlet Valve Status: %d\n", this->isOpen);
-
 }
 
 void waterLevelController(Valve *outlet, Valve *inlet1, Valve *inlet2, int waterLevel, WaterLevelSensor *waterLevelSensors)
@@ -64,7 +67,7 @@ void waterLevelController(Valve *outlet, Valve *inlet1, Valve *inlet2, int water
         printf("Inlet1 Valve Status: %d\n", inlet1->isOpen);
         printf("Inlet2 Valve Status: %d\n", inlet2->isOpen);
         printf("Outlet Valve Status: %d\n", outlet->isOpen);
-    } else if (waterLevelSensors[0].data == 1) {
+    } else if (waterLevelSensors[0].data == 1 || waterLevelSensors[0].data == 0) {
         setValveStatus(inlet1, 1);
         setValveStatus(inlet2, 1);
         setValveStatus(outlet, 0);

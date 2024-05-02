@@ -110,13 +110,11 @@ void startSimulation()
         readWaterLevel(&waterLevelSensors[3], &tank);
 
         temperatureController(&heater, temperatureSensor.data);
-        waterLevelController(&outlet, &inlet1, &inlet2, tank.waterLevel, waterLevelSensors);
-        pressureController(&outlet, tank.pressure);
-
-        printf("\n---Updated Values---\n");
-        printf("maxTemperature: %f\n", minMax.maxTemperature);
-        updatePressure(&tank, outlet.isOpen, minMax.tankHeight, minMax.maxTemperature, waterLevelSensors[3].data, temperatureSensor.data);
         updateTemperature(&tank, heater.isOn);
-        updateWaterLevel(&tank, inlet1.isOpen, inlet2.isOpen, outlet.isOpen);
+        waterLevelController(&outlet, &inlet1, &inlet2, tank.waterLevel, waterLevelSensors);
+        updateWaterLevel(&tank, inlet1.isOpen, inlet2.isOpen, outlet.isOpen, waterSensorsHeights[0]);
+        pressureController(&outlet, tank.pressure);
+        updatePressure(&tank, outlet.isOpen, tankHeight, maxTemperature, tank.temperature, waterSensorsHeights[2], waterSensorsHeights[0]);
+
     }
 }

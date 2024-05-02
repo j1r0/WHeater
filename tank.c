@@ -5,8 +5,8 @@
 void initializeTank(Tank *this)
 {
     this->pressure = 0;
-    this->temperature = 20;
-    this->waterLevel = 15;
+    this->temperature = 70;
+    this->waterLevel = 10;
 }
 
 int getPressure(Tank *this)
@@ -31,13 +31,21 @@ void updateTemperature(Tank *this, int isHeaterOn)
     }
     else
     {
-        this->temperature -= 5;
+        while (this->temperature > 70)
+        {
+            printf("Regulating Temperature: %d\n", this->temperature);
+            if (this->temperature >= 5){
+            this->temperature -= 5;
+        } else {
+            this->temperature = 0;
+        }
+        }
     }
 
-    printf("Updated Temperature: %d\n", this->temperature);
+    printf("\nUpdated Temperature: %d\n", this->temperature);
 }
 
-void updateWaterLevel(Tank *this, int inlet1Status, int inlet2Status, int outletStatus)
+void updateWaterLevel(Tank *this, int inlet1Status, int inlet2Status, int outletStatus, int waterLevelSensor1Height)
 {
     if (inlet1Status)
     {
@@ -49,14 +57,47 @@ void updateWaterLevel(Tank *this, int inlet1Status, int inlet2Status, int outlet
     }
     if (outletStatus)
     {
-        this->waterLevel -= 1;
+        printf("\n");
+       while (this -> waterLevel > waterLevelSensor1Height)
+        {
+            printf("Decreasing Water Level: %d\n", this->waterLevel);
+            printf("Decreasing Pressure as water level decreases: %d\n", this->pressure);
+            this->waterLevel -= 1;
+            if (this-> pressure >= 2){
+            this->pressure -= 2;
+        } else {
+            this->pressure = 0;
+        }
+        }
     }
 
     printf("Updated Water Level: %d\n", this->waterLevel);
 }
 
-void updatePressure(Tank *this, int outletStatus, int tankHeight, int maxTemperature, int waterLevelSensor3Height, int temperature)
+void updatePressure(Tank *this, int outletStatus, int tankHeight, int maxTemperature, int temperature, int waterLevelSensor3Height, int waterLevelSensor1Height)
 {
+
+    if (outletStatus)
+    {
+        
+        while (this -> waterLevel > waterLevelSensor1Height || this->pressure >= 50)
+        {
+            printf("Decreasing Water Level due to pressure: %d\n", this->waterLevel);
+            printf("Decreasing Pressure: %d\n", this->pressure);
+            if (this -> waterLevel >= 1)
+            {
+            this->waterLevel -= 1;
+            } else {
+                this->waterLevel = 1;
+            }
+            if (this-> pressure >= 2){
+            this->pressure -= 2;
+        } else {
+            this->pressure = 0;
+        }
+        }
+
+    } else {
     if (this->waterLevel >= waterLevelSensor3Height)
     {
         this->pressure += 5;
@@ -67,13 +108,8 @@ void updatePressure(Tank *this, int outletStatus, int tankHeight, int maxTempera
         this->pressure += 5;
 
     }
+}
 
-    if (outletStatus)
-    {
-        this->pressure -= 5;
-        this->waterLevel -= 1;
-    }
-
-    printf("Updated Pressure: %d\n", this->pressure);
+    printf("\nUpdated Pressure: %d\n", this->pressure);
 
 }
